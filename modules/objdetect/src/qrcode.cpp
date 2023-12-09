@@ -85,6 +85,8 @@ static Point2f intersectionLines(Point2f a1, Point2f a2, Point2f b1, Point2f b2)
 
 static inline double getCosVectors(Point2f a, Point2f b, Point2f c)
 {
+    if ( abs(a - b) < 0.001f || abs(c - b) < 0.001f )
+        return 0;
     return ((a - b).x * (c - b).x + (a - b).y * (c - b).y) / (norm(a - b) * norm(c - b));
 }
 
